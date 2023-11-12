@@ -22,11 +22,11 @@ void exibirMenu() {
 
 void MenuGaleria() {
     setlocale(LC_ALL, "Portuguese");
-    printf("\nQual galeria voce gostaria de ir:\n");
+    printf("\nQual galeria voce gostaria de visitar:\n");
     printf("\t1. 100 anos da semana da arte moderna\n");
     printf("\t2. 150 anos de Santos Durmont\n");
     printf("\t3. Jogos olimpicos em Paris 2024.\n");
-    printf("\t4. 2 Guerra Mundial.\n");
+    printf("\t4. Segunda Guerra Mundial.\n");
     printf("\t5. Voltar\n");
 }
 
@@ -90,29 +90,57 @@ int main() {
     {
         setlocale(LC_ALL, "Portuguese");
 
+        // Obra 1 100 anos de semana da arte moderna
         struct Obras semana_art_1;
         strcpy(semana_art_1.autor, "Foto tirada por Mario de Andrade.");
         strcpy(semana_art_1.titulo, "Foto do primeiro evento registrado da 'Semana de Arte Moderna'");
         strcpy(semana_art_1.descricao, "A imagem exposta no quadro se refere ao primeiro evento registrado da 'Semana de arte moderna', Com diversas exposicoes como musica, poesia, pintura, danca dentre outros.");
         strcpy(semana_art_1.infoGeral, "Foto tirada em 1942.");
 
-        struct Obras santos_durmont_1;
-        strcpy(santos_durmont_1.autor, "Edvard Munch");
-        strcpy(santos_durmont_1.titulo, "Quadro do artista Much, nomeado 'O Grito'");
-        strcpy(santos_durmont_1.descricao, "Para exemplificar o conteudo, foi exposto um quadro 'O Grito' do pintor “Much” que foi pintado em 1893. A Obra fala sobre a realidade sofrida, fragil e violenta de cada ruptura cotidiana. Este quadro foi pintado por Munch em 1893 e atualmente e uma grande referencia quando se trata da influencia da Semana de Arte Moderna");
-        strcpy(santos_durmont_1.infoGeral, "Obra pintada em 1893");
+        struct Obras semana_art_2;
+        strcpy(semana_art_2.autor, "Edvard Munch");
+        strcpy(semana_art_2.titulo, "Quadro do artista Much, nomeado 'O Grito'");
+        strcpy(semana_art_2.descricao, "Para exemplificar o conteudo, foi exposto um quadro 'O Grito' do pintor 'Much' que foi pintado em 1893. A Obra fala sobre a realidade sofrida, fragil e violenta de cada ruptura cotidiana. Este quadro foi pintado por Munch em 1893 e atualmente e uma grande referencia quando se trata da influencia da Semana de Arte Moderna");
+        strcpy(semana_art_2.infoGeral, "Obra pintada em 1893");
 
+        // Obra 2 150 anos de Santos Durmont
+        struct Obras santos_durmont_1;
+        strcpy(santos_durmont_1.autor, "Autor desconhecido");
+        strcpy(santos_durmont_1.titulo, "Réplica em tamanho real do 14 Bis");
+        strcpy(santos_durmont_1.descricao, "Foi disponibilizado para os visitantes uma réplica do avião de Santos Dumont, conhecido como 14 bis. Uma curiosidade é que o museu O Musal foi o primeiro a trazer uma réplica do 14 bis, sendo construído pelo Parque de Material Aeronáutico dos Afonsos");
+        strcpy(santos_durmont_1.infoGeral, "Ano 2005");
+
+        struct Obras santos_durmont_2;
+        strcpy(santos_durmont_2.autor, "Fotografo desconhecido");
+        strcpy(santos_durmont_2.titulo, "Retrato verídico do 14 Bis");
+        strcpy(santos_durmont_2.descricao, "Foi exposto para os visitantes um retrato real do 14 bis criado por Santos Dumont na época. Este retrato foi feito por um artista contratado por Santos Dumont para registrar este histórico momento.");
+        strcpy(santos_durmont_2.infoGeral, "Foto Tirada em 1904.");
+
+        // Obra 3 Jogos olimpicos em Paris 2024
         struct Obras jogos_olimp_1;
         strcpy(jogos_olimp_1.autor, "Nome do autor");
         strcpy(jogos_olimp_1.titulo, "Projeto do estádio dos jogos de Paris 2024");
         strcpy(jogos_olimp_1.descricao, "Foi disponibilizado aos visitantes uma foto do projeto do estadio olimpico de Paris 2024. A foto deste projeto foi disponibilizada pelos próprios resposavel pela criação do estádio de Paris 2024.");
         strcpy(jogos_olimp_1.infoGeral, "ano 1000");
 
+        struct Obras jogos_olimp_2;
+        strcpy(jogos_olimp_2.autor, "Nome do autor");
+        strcpy(jogos_olimp_2.titulo, "Mascotes de Paris 2024");
+        strcpy(jogos_olimp_2.descricao, "Contratamos os mascotes dos jogos olímpicos de Paris 2024 para que os visitantes possam tirar fotos apenas nas segundas e sextas-feiras. Os mascotes foram criados pelo próprio Comitê Organizador e são referência aos gorros usados durante a Revolução Francesa");
+        strcpy(jogos_olimp_2.infoGeral, "Ano de inicio das olimpiadas 2024");
+
+        // Obra 4 Segunda Guerra Mundial
         struct Obras guerra_mundial_1;
         strcpy(guerra_mundial_1.autor, "Nome do autor");
         strcpy(guerra_mundial_1.titulo, "Exposição mostrando como era a vida na cidade de Stalingrado");
         strcpy(guerra_mundial_1.descricao, "Exemplos e imagens mostrando a cidade de Stalingrado (atual  Volgogrado) nas margens do rio Volvos, foi um grande combate travado entre a Wehrmacht (o exército da Alemanha Nazista) e seus aliados do Eixo contra as tropas da União Soviética, A batalha foi um dos pontos de virada da guerra na Frente Oriental, marcando o limite da expansão alemã no território soviético, a partir de onde o Exército Vermelho empurraria as forças alemãs ate Berlim.");
         strcpy(guerra_mundial_1.infoGeral, "Foto tirada entre 23 de agosto de 1942");
+
+        struct Obras guerra_mundial_2;
+        strcpy(guerra_mundial_2.autor, "Nome do autor");
+        strcpy(guerra_mundial_2.titulo, "A Operação Weserübung");
+        strcpy(guerra_mundial_2.descricao, "foi o assalto alemão sobre as nações-neutras da Dinamarca (Weserübung-Süd) e Noruega (Weserübung-Nord) em 1940, durante a Segunda Guerra Mundial. Esse ataque marcou o início da Campanha da Noruega, que seria ganha pelos alemães. O nome da operação significa 'Exercício no Weser', sendo este um rio alemão. Foi planejada pelo general alemão Nikolaus von Falkenhorst, a pedido de Hitler. Às 4h15 da madrugada na hora local, A 'hora Weser', de 9 de abril de 1940, o 'dia Weser', a Alemanha invadiu a Dinamarca e a Noruega, supostamente para protegê-las de um possível ataque da França e Inglaterra. A Dinamarca resistiu algumas horas à ofensiva alemã, tendo morrido 26 soldados dinamarqueses e 20 alemaes.");
+        strcpy(guerra_mundial_2.infoGeral, "Fotos tiradas na cidade de Copenhage em 1940");
 
         exibirMenu();
         scanf("%d", &menu);
@@ -132,7 +160,8 @@ int main() {
                         {
                             printf("\n..Bem-vindo a Galeria '100 anos da semana da arte moderna..'\n");
                             printf("Qual obra voce gostaria de visitar\n");
-                            printf("\t1.Primeiro evento da 'Semana da arte Moderna'\n");
+                            printf("\t1. Primeiro evento da 'Semana da arte Moderna'\n");
+                            printf("\t2. Quadro 'O Grito'\n");
                             printf("\t3. Voltar\n");
                             scanf("%d", &escolha);
 
@@ -140,6 +169,10 @@ int main() {
                             {
                             case 1:
                                 InfoObra(semana_art_1);
+                                break;
+
+                            case 2:
+                                InfoObra(semana_art_2);
                                 break;
 
                             default:
@@ -154,7 +187,8 @@ int main() {
                         {
                             printf("\n..Bem-vindo a Galeria '150 anos de Santos Durmont'\n");
                             printf("Qual obra voce gostaria de visitar\n");
-                            printf("\t1. Quadro 'O Grito'\n");
+                            printf("\t1. Réplica em tamanho real do 14 Bis\n");
+                            printf("\t2. Retrato verídico do 14 Bis\n");
                             printf("\t3. Voltar\n");
                             scanf("%d", &escolha);
 
@@ -162,6 +196,10 @@ int main() {
                             {
                             case 1:
                                 InfoObra(santos_durmont_1);
+                                break;
+                            
+                            case 2:
+                                InfoObra(santos_durmont_2);
                                 break;
 
                             default:
@@ -177,6 +215,7 @@ int main() {
                             printf("\n..Bem-vindo a Galeria 'Jogos olímpicos em Paris 2024.'\n");
                             printf("Qual obra voce gostaria de visitar\n");
                             printf("\t1. Foto Do Estadio'\n");
+                            printf("\t2. Mascotes de Paris\n");
                             printf("\t3. Voltar\n");
                             scanf("%d", &escolha);
 
@@ -184,6 +223,10 @@ int main() {
                             {
                             case 1:
                                 InfoObra(jogos_olimp_1);
+                                break;
+                            
+                            case 2:
+                                InfoObra(jogos_olimp_2);
                                 break;
 
                             default:
@@ -196,9 +239,10 @@ int main() {
                     case 4:
                         do
                         {
-                            printf("\n..Bem-vindo a Galeria '2 Guerra Mundial.'\n");
+                            printf("\n..Bem-vindo a Galeria 'Segunda Guerra Mundial.'\n");
                             printf("Qual obra voce gostaria de visitar\n");
                             printf("\t1. Batalha de Stalingrado'\n");
+                            printf("\t2. A Operação Weserübung\n");
                             printf("\t3. Voltar\n");
                             scanf("%d", &escolha);
 
@@ -206,6 +250,10 @@ int main() {
                             {
                             case 1:
                                 InfoObra(guerra_mundial_1);
+                                break;
+                            
+                            case 2:
+                                InfoObra(guerra_mundial_2);
                                 break;
 
                             default:
@@ -232,8 +280,8 @@ int main() {
                     printf("\t1. 100 anos da semana da arte moderna\n");
                     printf("\t2. 150 anos de Santos Durmont\n");
                     printf("\t3. Jogos olimpicos em Paris 2024.\n");
-                    printf("\t4. 2 Guerra Mundial.\n");
-                    printf("\t5. Calcular media de avaliacoes\n");
+                    printf("\t4. Segunda Guerra Mundial\n");
+                    printf("\t5. Calcular media total de avaliacoes\n");
                     printf("\t6. Voltar\n");
                     scanf("%d", &escolha);
 
@@ -268,7 +316,7 @@ int main() {
 
                     case 4:
                         guerra_mundial_1.avaliacao = 0;
-                        printf("\n\t..Avaliacao da Galeria '2 Guerra Mundial.'..\n");
+                        printf("\n\t..Avaliacao da Galeria 'Segunda Guerra Mundial'..\n");
                         interacaoVisitante(&guerra_mundial_1);
                         InfoObra(guerra_mundial_1);
                         escreverAvaliacaoNoArquivo(guerra_mundial_1.avaliacao, nomeArquivo);
@@ -292,7 +340,7 @@ int main() {
                 break;
 
             case 3:
-                printf("\nSaindo do programa. Adeus!\n");
+                printf("\nSaindo do programa. Volte Sempre!\n");
                 break;
 
             default:
