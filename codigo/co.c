@@ -6,9 +6,9 @@
 struct Obras {
     char autor[100];
     char titulo[150];
-    char descricao[4000];
+    char descricao[1000];
     char infoGeral[100];
-    char tema[50];
+    int avaliacao;
 };
 
 void exibirMenu() {
@@ -16,7 +16,7 @@ void exibirMenu() {
     printf("\n\t...Menu Principal...\t\n");
     printf("\nBem-vindo a Galeria de Arte!\n");
     printf("\t1. Galeria\n");
-    printf("\t2. Relatorio das obras\n");
+    printf("\t2. Relatorio de avaliacoes das obras\n");
     printf("\t3. Sair\n");
 }
 
@@ -36,13 +36,55 @@ void InfoObra(struct Obras ArteInfo) {
     printf("Descricao: %s\n", ArteInfo.descricao);
     printf("Autor: %s\n", ArteInfo.autor);
     printf("Informacoes Gerais: %s\n", ArteInfo.infoGeral);
+    printf("\nEsta obra foi avaliada em: %d\n", ArteInfo.avaliacao);
     system("Pause");
+}
+
+void interacaoVisitante(struct Obras *ArteInfo) {
+    printf("\nAvalie esta obra de 1 a 5 (sendo 1 ruim e 5 excelente):\n");
+    scanf("%d", &(ArteInfo->avaliacao));
+}
+
+void escreverAvaliacaoNoArquivo(int avaliacao, const char *nomeArquivo) {
+    FILE *arquivo = fopen(nomeArquivo, "a");
+    if (arquivo == NULL) {
+        perror("Erro ao abrir o arquivo para escrita");
+        return;
+    }
+    fprintf(arquivo, "%d\n", avaliacao);
+    fclose(arquivo);
+}
+
+float calcularMediaAvaliacoes(const char *nomeArquivo) {
+    FILE *arquivo = fopen(nomeArquivo, "r");
+    if (arquivo == NULL) {
+        perror("Erro ao abrir o arquivo para leitura");
+        return -1;
+    }
+
+    int totalAvaliacoes = 0;
+    int somaAvaliacoes = 0;
+    int avaliacao;
+
+    while (fscanf(arquivo, "%d\n", &avaliacao) == 1) {
+        totalAvaliacoes++;
+        somaAvaliacoes += avaliacao;
+    }
+
+    fclose(arquivo);
+
+    if (totalAvaliacoes > 0) {
+        return (float)somaAvaliacoes / totalAvaliacoes;
+    } else {
+        return 0.0;
+    }
 }
 
 int main() {
     
     setlocale(LC_ALL, "Portuguese");
     int menu, escolha;
+    float media;
 
     do
     {
@@ -182,6 +224,71 @@ int main() {
                 break;
 
             case 2:
+                do
+                {
+                    const char *nomeArquivo = "avaliacoes.txt";
+                    printf("\n\t...Avaliacao de uma obra...\n");
+                    printf("\nQual obra gostaria de avaliar?\n");
+                    printf("\t1. 100 anos da semana da arte moderna\n");
+                    printf("\t2. 150 anos de Santos Durmont\n");
+                    printf("\t3. Jogos olimpicos em Paris 2024.\n");
+                    printf("\t4. 2 Guerra Mundial.\n");
+                    printf("\t5. Calcular media de avaliacoes\n");
+                    printf("\t6. Voltar\n");
+                    scanf("%d", &escolha);
+
+                    switch (escolha)
+                    {
+                    case 1:
+                        semana_art_1.avaliacao = 0;
+                        printf("\n\t..Avaliacao da Galeria '100 anos da semana da arte moderna'..\n");
+                        interacaoVisitante(&semana_art_1);
+                        InfoObra(semana_art_1);
+                        escreverAvaliacaoNoArquivo(semana_art_1.avaliacao, nomeArquivo);
+                        media = calcularMediaAvaliacoes(nomeArquivo);
+                        break;
+
+                    case 2:
+                        santos_durmont_1.avaliacao = 0;
+                        printf("\n\t..Avaliacao da Galeria '150 anos de Santos Durmont'..\n");
+                        interacaoVisitante(&santos_durmont_1);
+                        InfoObra(santos_durmont_1);
+                        escreverAvaliacaoNoArquivo(santos_durmont_1.avaliacao, nomeArquivo);
+                        media = calcularMediaAvaliacoes(nomeArquivo);
+                        break;
+                    
+                    case 3:
+                        jogos_olimp_1.avaliacao = 0;
+                        printf("\n\t..Avaliacao da Galeria 'Jogos olimpicos em Paris 2024'..\n");
+                        interacaoVisitante(&jogos_olimp_1);
+                        InfoObra(jogos_olimp_1);
+                        escreverAvaliacaoNoArquivo(jogos_olimp_1.avaliacao, nomeArquivo);
+                        media = calcularMediaAvaliacoes(nomeArquivo);
+                        break;
+
+                    case 4:
+                        guerra_mundial_1.avaliacao = 0;
+                        printf("\n\t..Avaliacao da Galeria '2 Guerra Mundial.'..\n");
+                        interacaoVisitante(&guerra_mundial_1);
+                        InfoObra(guerra_mundial_1);
+                        escreverAvaliacaoNoArquivo(guerra_mundial_1.avaliacao, nomeArquivo);
+                        media = calcularMediaAvaliacoes(nomeArquivo);
+                        break;
+
+                    case 5:
+                        media = calcularMediaAvaliacoes(nomeArquivo);
+                        if (media >= 0) {
+                        printf("\nmedia de avaliacoes gerais: %.2f\n", media);
+                        } else {
+                        printf("\nErro ao calcular a madia de avaliacoes.\n");
+                        }
+                    default:
+                        printf("\nOpcao invalida.\n");
+                        break;
+                    }
+
+                } while (escolha != 6);
+                
                 break;
 
             case 3:
