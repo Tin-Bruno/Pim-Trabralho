@@ -6,68 +6,71 @@
 struct Obras {
     char autor[100];
     char titulo[150];
-    char descricao[2000];
+    char descricao[4000];
     char infoGeral[100];
+    char tema[50];
 };
 
 void exibirMenu() {
     setlocale(LC_ALL, "Portuguese");
-    printf("\nMenu:\n");
-    printf("1. Galeria\n");
-    printf("2. Avaliações\n");
-    printf("4. Sair\n");
+    printf("\n\t...Menu Principal...\t\n");
+    printf("\nBem-vindo a Galeria de Arte!\n");
+    printf("\t1. Galeria\n");
+    printf("\t2. Relatorio das obras\n");
+    printf("\t3. Sair\n");
 }
 
 void InfoGaleria() {
     setlocale(LC_ALL, "Portuguese");
-    printf("Bem-vindo à Galeria de Arte!\n");
-    printf("Qual galeria você gostaria de ir primeiro:\n");
-    printf("\t1. 100 da semana da arte moderna\n");
+    printf("\nQual galeria voce gostaria de ir:\n");
+    printf("\t1. 100 anos da semana da arte moderna\n");
     printf("\t2. 150 anos de Santos Durmont\n");
-    printf("\t3. Jogos olímpicos em Paris 2024.\n");
+    printf("\t3. Jogos olimpicos em Paris 2024.\n");
     printf("\t4. 2 Guerra Mundial.\n");
     printf("\t5. Voltar\n");
 }
 
 void InfoObra(struct Obras ArteInfo) {
     setlocale(LC_ALL, "Portuguese");
-    printf("Informações Gerais: %s\n", ArteInfo.infoGeral);
+    printf("\nTitulo: %s\n", ArteInfo.titulo);
+    printf("Descricao: %s\n", ArteInfo.descricao);
     printf("Autor: %s\n", ArteInfo.autor);
-    printf("Titulo: %s\n", ArteInfo.titulo);
-    printf("Descrição: %s\n", ArteInfo.descricao);
+    printf("Informacoes Gerais: %s\n", ArteInfo.infoGeral);
+    system("Pause");
 }
 
 int main() {
-
+    
+    setlocale(LC_ALL, "Portuguese");
     int menu, escolha;
 
     do
     {
         setlocale(LC_ALL, "Portuguese");
 
-        struct Obras art_1;
-        strcpy(art_1.autor, "");
-        strcpy(art_1.titulo, "100 da semana da arte moderna");
-        strcpy(art_1.descricao, "");
-        strcpy(art_1.infoGeral, "");
+        struct Obras semana_art_1;
+        strcpy(semana_art_1.autor, "Foto tirada por Mario de Andrade.");
+        strcpy(semana_art_1.titulo, "Foto do primeiro evento registrado da 'Semana de Arte Moderna'");
+        strcpy(semana_art_1.descricao, "A imagem exposta no quadro se refere ao primeiro evento registrado da 'Semana de arte moderna', Com diversas exposicoes como musica, poesia, pintura, danca dentre outros.");
+        strcpy(semana_art_1.infoGeral, "Foto tirada em 1942.");
 
-        struct Obras art_2;
-        strcpy(art_2.autor, "");
-        strcpy(art_2.titulo, "150 anos de Santos Durmont");
-        strcpy(art_2.descricao, "");
-        strcpy(art_2.infoGeral, "");
+        struct Obras santos_durmont_1;
+        strcpy(santos_durmont_1.autor, "Edvard Munch");
+        strcpy(santos_durmont_1.titulo, "Quadro do artista Much, nomeado 'O Grito'");
+        strcpy(santos_durmont_1.descricao, "Para exemplificar o conteudo, foi exposto um quadro 'O Grito' do pintor “Much” que foi pintado em 1893. A Obra fala sobre a realidade sofrida, fragil e violenta de cada ruptura cotidiana. Este quadro foi pintado por Munch em 1893 e atualmente e uma grande referencia quando se trata da influencia da Semana de Arte Moderna");
+        strcpy(santos_durmont_1.infoGeral, "Obra pintada em 1893");
 
-        struct Obras art_3;
-        strcpy(art_3.autor, "");
-        strcpy(art_3.titulo, "Jogos olímpicos em Paris 2024.");
-        strcpy(art_3.descricao, "");
-        strcpy(art_3.infoGeral, "");
+        struct Obras jogos_olimp_1;
+        strcpy(jogos_olimp_1.autor, "Nome do autor");
+        strcpy(jogos_olimp_1.titulo, "Projeto do estádio dos jogos de Paris 2024");
+        strcpy(jogos_olimp_1.descricao, "Foi disponibilizado aos visitantes uma foto do projeto do estadio olimpico de Paris 2024. A foto deste projeto foi disponibilizada pelos próprios resposavel pela criação do estádio de Paris 2024.");
+        strcpy(jogos_olimp_1.infoGeral, "ano 1000");
 
-        struct Obras art_4;
-        strcpy(art_4.autor, "");
-        strcpy(art_4.titulo, "2 Guerra Mundial.");
-        strcpy(art_4.descricao, "");
-        strcpy(art_4.infoGeral, "");
+        struct Obras guerra_mundial_1;
+        strcpy(guerra_mundial_1.autor, "");
+        strcpy(guerra_mundial_1.titulo, "");
+        strcpy(guerra_mundial_1.descricao, "");
+        strcpy(guerra_mundial_1.infoGeral, "");
 
         exibirMenu();
         scanf("%d", &menu);
@@ -83,22 +86,95 @@ int main() {
                     switch (escolha)
                     {
                     case 1:
-                        InfoObra(art_1);
+                        do
+                        {
+                            printf("\n..Bem-vindo a Galeria '100 anos da semana da arte moderna..'\n");
+                            printf("Qual obra voce gostaria de visitar\n");
+                            printf("\t1.Primeiro evento da 'Semana da arte Moderna'\n");
+                            printf("\t3. Voltar\n");
+                            scanf("%d", &escolha);
+
+                            switch (escolha)
+                            {
+                            case 1:
+                                InfoObra(semana_art_1);
+                                break;
+
+                            default:
+                                printf("\nOpcao invalida.\n");
+                                break;
+                            }
+                        } while (escolha != 3);
                         break;
-                    
+
                     case 2:
-                        InfoObra(art_2);
+                        do
+                        {
+                            printf("\n..Bem-vindo a Galeria '150 anos de Santos Durmont'\n");
+                            printf("Qual obra voce gostaria de visitar\n");
+                            printf("\t1. Quadro 'O Grito'\n");
+                            printf("\t3. Voltar\n");
+                            scanf("%d", &escolha);
+
+                            switch (escolha)
+                            {
+                            case 1:
+                                InfoObra(santos_durmont_1);
+                                break;
+
+                            default:
+                                printf("\nOpcao invalida.\n");
+                                break;
+                            }
+                        } while (escolha != 3);
                         break;
                     
                     case 3:
-                        InfoObra(art_3);
+                        do
+                        {
+                            printf("\n..Bem-vindo a Galeria 'Jogos olímpicos em Paris 2024.'\n");
+                            printf("Qual obra voce gostaria de visitar\n");
+                            printf("\t1. Foto Do Estadio'\n");
+                            printf("\t3. Voltar\n");
+                            scanf("%d", &escolha);
+
+                            switch (escolha)
+                            {
+                            case 1:
+                                InfoObra(jogos_olimp_1);
+                                break;
+
+                            default:
+                                printf("\nOpcao invalida.\n");
+                                break;
+                            }
+                        } while (escolha != 3);
                         break;
 
                     case 4:
-                        InfoObra(art_4);
+                        do
+                        {
+                            printf("\n..Bem-vindo a Galeria '2 Guerra Mundial.'\n");
+                            printf("Qual obra voce gostaria de visitar\n");
+                            printf("\t1. '\n");
+                            printf("\t3. Voltar\n");
+                            scanf("%d", &escolha);
+
+                            switch (escolha)
+                            {
+                            case 1:
+                                InfoObra(guerra_mundial_1);
+                                break;
+
+                            default:
+                                printf("\nOpcao invalida.\n");
+                                break;
+                            }
+                        } while (escolha != 3);
                         break;
 
                     default:
+                        printf("\nOpcao invalida.\n");
                         break;
                     }
 
@@ -109,11 +185,11 @@ int main() {
                 break;
 
             case 3:
-                printf("Saindo do programa. Adeus!\n");
+                printf("\nSaindo do programa. Adeus!\n");
                 break;
 
             default:
-                printf("Opção inválida.\n");
+                printf("\nOpcao invalida.\n");
             }
         } while (menu != 3);
 
