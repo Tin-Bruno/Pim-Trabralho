@@ -20,7 +20,7 @@ void exibirMenu() {
     printf("\t3. Sair\n");
 }
 
-void InfoGaleria() {
+void MenuGaleria() {
     setlocale(LC_ALL, "Portuguese");
     printf("\nQual galeria voce gostaria de ir:\n");
     printf("\t1. 100 anos da semana da arte moderna\n");
@@ -67,10 +67,10 @@ int main() {
         strcpy(jogos_olimp_1.infoGeral, "ano 1000");
 
         struct Obras guerra_mundial_1;
-        strcpy(guerra_mundial_1.autor, "");
-        strcpy(guerra_mundial_1.titulo, "");
-        strcpy(guerra_mundial_1.descricao, "");
-        strcpy(guerra_mundial_1.infoGeral, "");
+        strcpy(guerra_mundial_1.autor, "Nome do autor");
+        strcpy(guerra_mundial_1.titulo, "Exposição mostrando como era a vida na cidade de Stalingrado");
+        strcpy(guerra_mundial_1.descricao, "Exemplos e imagens mostrando a cidade de Stalingrado (atual  Volgogrado) nas margens do rio Volvos, foi um grande combate travado entre a Wehrmacht (o exército da Alemanha Nazista) e seus aliados do Eixo contra as tropas da União Soviética, A batalha foi um dos pontos de virada da guerra na Frente Oriental, marcando o limite da expansão alemã no território soviético, a partir de onde o Exército Vermelho empurraria as forças alemãs ate Berlim.");
+        strcpy(guerra_mundial_1.infoGeral, "Foto tirada entre 23 de agosto de 1942");
 
         exibirMenu();
         scanf("%d", &menu);
@@ -80,7 +80,7 @@ int main() {
             case 1:
                 do
                 {
-                    InfoGaleria();
+                    MenuGaleria();
                     scanf("%d", &escolha);
 
                     switch (escolha)
@@ -156,7 +156,7 @@ int main() {
                         {
                             printf("\n..Bem-vindo a Galeria '2 Guerra Mundial.'\n");
                             printf("Qual obra voce gostaria de visitar\n");
-                            printf("\t1. '\n");
+                            printf("\t1. Batalha de Stalingrado'\n");
                             printf("\t3. Voltar\n");
                             scanf("%d", &escolha);
 
