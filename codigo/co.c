@@ -26,20 +26,20 @@ void InfoGaleria() {
     printf("\t2. 150 anos de Santos Durmont\n");
     printf("\t3. Jogos olímpicos em Paris 2024.\n");
     printf("\t4. 2 Guerra Mundial.\n");
+    printf("\t5. Voltar\n");
 }
 
-void InfoArt(struct Obras ArteInfo) {
+void InfoObra(struct Obras ArteInfo) {
     setlocale(LC_ALL, "Portuguese");
     printf("Informações Gerais: %s\n", ArteInfo.infoGeral);
     printf("Autor: %s\n", ArteInfo.autor);
     printf("Titulo: %s\n", ArteInfo.titulo);
     printf("Descrição: %s\n", ArteInfo.descricao);
-    printf("Ano em que a Obra foi feita\n");
 }
 
 int main() {
 
-    int escolha;
+    int menu, escolha;
 
     do
     {
@@ -70,26 +70,52 @@ int main() {
         strcpy(art_4.infoGeral, "");
 
         exibirMenu();
-        scanf("%d", &escolha);
+        scanf("%d", &menu);
 
-        // Exibir informações com base na escolha do usuário
-        switch (escolha) {
+        switch (menu) {
+
             case 1:
-                exibirInformacoes(art_1);
+                do
+                {
+                    InfoGaleria();
+                    scanf("%d", &escolha);
+
+                    switch (escolha)
+                    {
+                    case 1:
+                        InfoObra(art_1);
+                        break;
+                    
+                    case 2:
+                        InfoObra(art_2);
+                        break;
+                    
+                    case 3:
+                        InfoObra(art_3);
+                        break;
+
+                    case 4:
+                        InfoObra(art_4);
+                        break;
+
+                    default:
+                        break;
+                    }
+
+                } while (escolha != 5);
                 break;
+
             case 2:
-                exibirInformacoes(art_2);
                 break;
+
             case 3:
-                exibirInformacoes(art_3);
+                printf("Saindo do programa. Adeus!\n");
                 break;
-            case 4:
-                exibirInformacoes(art_4);
-                break;
+
             default:
                 printf("Opção inválida.\n");
             }
-        } while (escolha != 5);
+        } while (menu != 3);
 
     return 0;
 }
