@@ -13,15 +13,18 @@ struct Obras {
 
 void exibirMenu() {
     setlocale(LC_ALL, "Portuguese");
+    system("cls");
     printf("\n\t...Menu Principal...\t\n");
     printf("\nBem-vindo a Galeria de Arte!\n");
     printf("\t1. Galeria\n");
     printf("\t2. Relatorio de avaliacoes das obras\n");
     printf("\t3. Sair\n");
+
 }
 
 void MenuGaleria() {
     setlocale(LC_ALL, "Portuguese");
+    system("cls");
     printf("\nQual galeria voce gostaria de visitar:\n");
     printf("\t1. 100 anos da semana da arte moderna\n");
     printf("\t2. 150 anos de Santos Durmont\n");
@@ -32,20 +35,29 @@ void MenuGaleria() {
 
 void InfoObra(struct Obras ArteInfo) {
     setlocale(LC_ALL, "Portuguese");
+    system("cls");
     printf("\nTitulo: %s\n", ArteInfo.titulo);
     printf("Descricao: %s\n", ArteInfo.descricao);
     printf("Autor: %s\n", ArteInfo.autor);
     printf("Informacoes Gerais: %s\n", ArteInfo.infoGeral);
-    printf("\nEsta obra foi avaliada em: %d\n", ArteInfo.avaliacao);
+        if (ArteInfo.avaliacao == 0)
+        {
+            printf("\nCaso queira avaliar esta obra volte ate o menu principal e va ate 'Relatorio de avaliacoes das obras'\n");
+        } else
+        {
+            printf("\nEsta obra foi avaliada em: %d\n", ArteInfo.avaliacao);
+        }
     system("Pause");
 }
 
 void interacaoVisitante(struct Obras *ArteInfo) {
+    system("cls");
     printf("\nAvalie esta obra de 1 a 5 (sendo 1 ruim e 5 excelente):\n");
     scanf("%d", &(ArteInfo->avaliacao));
 }
 
 void escreverAvaliacaoNoArquivo(int avaliacao, const char *nomeArquivo) {
+    system("cls");
     FILE *arquivo = fopen(nomeArquivo, "a");
     if (arquivo == NULL) {
         perror("Erro ao abrir o arquivo para escrita");
@@ -56,6 +68,7 @@ void escreverAvaliacaoNoArquivo(int avaliacao, const char *nomeArquivo) {
 }
 
 float calcularMediaAvaliacoes(const char *nomeArquivo) {
+    system("cls");
     FILE *arquivo = fopen(nomeArquivo, "r");
     if (arquivo == NULL) {
         perror("Erro ao abrir o arquivo para leitura");
@@ -106,7 +119,7 @@ int main() {
         // Obra 2 150 anos de Santos Durmont
         struct Obras santos_durmont_1;
         strcpy(santos_durmont_1.autor, "Autor desconhecido");
-        strcpy(santos_durmont_1.titulo, "Réplica em tamanho real do 14 Bis");
+        strcpy(santos_durmont_1.titulo, "Replica em tamanho real do 14 Bis");
         strcpy(santos_durmont_1.descricao, "Foi disponibilizado para os visitantes uma réplica do avião de Santos Dumont, conhecido como 14 bis. Uma curiosidade é que o museu O Musal foi o primeiro a trazer uma réplica do 14 bis, sendo construído pelo Parque de Material Aeronáutico dos Afonsos");
         strcpy(santos_durmont_1.infoGeral, "Ano 2005");
 
@@ -132,7 +145,7 @@ int main() {
         // Obra 4 Segunda Guerra Mundial
         struct Obras guerra_mundial_1;
         strcpy(guerra_mundial_1.autor, "Nome do autor");
-        strcpy(guerra_mundial_1.titulo, "Exposição mostrando como era a vida na cidade de Stalingrado");
+        strcpy(guerra_mundial_1.titulo, "Esposicao mostrando como era a vida na cidade de Stalingrado");
         strcpy(guerra_mundial_1.descricao, "Exemplos e imagens mostrando a cidade de Stalingrado (atual  Volgogrado) nas margens do rio Volvos, foi um grande combate travado entre a Wehrmacht (o exército da Alemanha Nazista) e seus aliados do Eixo contra as tropas da União Soviética, A batalha foi um dos pontos de virada da guerra na Frente Oriental, marcando o limite da expansão alemã no território soviético, a partir de onde o Exército Vermelho empurraria as forças alemãs ate Berlim.");
         strcpy(guerra_mundial_1.infoGeral, "Foto tirada entre 23 de agosto de 1942");
 
@@ -150,6 +163,7 @@ int main() {
             case 1:
                 do
                 {
+                    setlocale(LC_ALL, "Portuguese");
                     MenuGaleria();
                     scanf("%d", &escolha);
 
@@ -158,6 +172,7 @@ int main() {
                     case 1:
                         do
                         {
+                            system("cls");
                             printf("\n..Bem-vindo a Galeria '100 anos da semana da arte moderna..'\n");
                             printf("Qual obra voce gostaria de visitar\n");
                             printf("\t1. Primeiro evento da 'Semana da arte Moderna'\n");
@@ -185,6 +200,7 @@ int main() {
                     case 2:
                         do
                         {
+                            system("cls");
                             printf("\n..Bem-vindo a Galeria '150 anos de Santos Durmont'\n");
                             printf("Qual obra voce gostaria de visitar\n");
                             printf("\t1. Réplica em tamanho real do 14 Bis\n");
@@ -212,6 +228,7 @@ int main() {
                     case 3:
                         do
                         {
+                            system("cls");
                             printf("\n..Bem-vindo a Galeria 'Jogos olímpicos em Paris 2024.'\n");
                             printf("Qual obra voce gostaria de visitar\n");
                             printf("\t1. Foto Do Estadio'\n");
@@ -239,6 +256,8 @@ int main() {
                     case 4:
                         do
                         {
+                            system("cls");
+                            setlocale(LC_ALL, "Portuguese");
                             printf("\n..Bem-vindo a Galeria 'Segunda Guerra Mundial.'\n");
                             printf("Qual obra voce gostaria de visitar\n");
                             printf("\t1. Batalha de Stalingrado'\n");
@@ -275,6 +294,7 @@ int main() {
                 do
                 {
                     const char *nomeArquivo = "avaliacoes.txt";
+                    system("cls");
                     printf("\n\t...Avaliacao de uma obra...\n");
                     printf("\nQual obra gostaria de avaliar?\n");
                     printf("\t1. 100 anos da semana da arte moderna\n");
@@ -289,6 +309,7 @@ int main() {
                     {
                     case 1:
                         semana_art_1.avaliacao = 0;
+                        system("cls");
                         printf("\n\t..Avaliacao da Galeria '100 anos da semana da arte moderna'..\n");
                         interacaoVisitante(&semana_art_1);
                         InfoObra(semana_art_1);
@@ -298,6 +319,7 @@ int main() {
 
                     case 2:
                         santos_durmont_1.avaliacao = 0;
+                        system("cls");
                         printf("\n\t..Avaliacao da Galeria '150 anos de Santos Durmont'..\n");
                         interacaoVisitante(&santos_durmont_1);
                         InfoObra(santos_durmont_1);
@@ -307,6 +329,7 @@ int main() {
                     
                     case 3:
                         jogos_olimp_1.avaliacao = 0;
+                        system("cls");
                         printf("\n\t..Avaliacao da Galeria 'Jogos olimpicos em Paris 2024'..\n");
                         interacaoVisitante(&jogos_olimp_1);
                         InfoObra(jogos_olimp_1);
@@ -316,6 +339,7 @@ int main() {
 
                     case 4:
                         guerra_mundial_1.avaliacao = 0;
+                        system("cls");
                         printf("\n\t..Avaliacao da Galeria 'Segunda Guerra Mundial'..\n");
                         interacaoVisitante(&guerra_mundial_1);
                         InfoObra(guerra_mundial_1);
@@ -325,6 +349,7 @@ int main() {
 
                     case 5:
                         media = calcularMediaAvaliacoes(nomeArquivo);
+                        system("cls");
                         if (media >= 0) {
                         printf("\nmedia de avaliacoes gerais: %.2f\n", media);
                         } else {
@@ -340,6 +365,7 @@ int main() {
                 break;
 
             case 3:
+                system("cls");
                 printf("\nSaindo do programa. Volte Sempre!\n");
                 break;
 
