@@ -4,10 +4,10 @@
 #include <string.h>
 
 struct Obras {
-    char autor[100];
-    char titulo[150];
+    char autor[50];
+    char titulo[100];
     char descricao[1000];
-    char infoGeral[100];
+    char infoGeral[50];
     int avaliacao;
 };
 
@@ -45,13 +45,14 @@ void InfoObra(struct Obras ArteInfo) {
             printf("\nCaso queira avaliar esta obra volte ate o menu principal e va ate 'Relatorio de avaliacoes das obras'\n");
         } else
         {
-            printf("\nEsta obra foi avaliada em: %d\n", ArteInfo.avaliacao);
+            printf("Avaliação do Visitante: %d\n", ArteInfo.avaliacao);
         }
     system("Pause");
 }
 
 void interacaoVisitante(struct Obras *ArteInfo) {
     system("cls");
+    setlocale(LC_ALL, "Portuguese");
     printf("\nAvalie esta obra de 1 a 5 (sendo 1 ruim e 5 excelente):\n");
     scanf("%d", &(ArteInfo->avaliacao));
 }
@@ -133,8 +134,8 @@ int main() {
         struct Obras jogos_olimp_1;
         strcpy(jogos_olimp_1.autor, "Nome do autor");
         strcpy(jogos_olimp_1.titulo, "Projeto do estádio dos jogos de Paris 2024");
-        strcpy(jogos_olimp_1.descricao, "Foi disponibilizado aos visitantes uma foto do projeto do estadio olimpico de Paris 2024. A foto deste projeto foi disponibilizada pelos próprios resposavel pela criação do estádio de Paris 2024.");
-        strcpy(jogos_olimp_1.infoGeral, "ano 1000");
+        strcpy(jogos_olimp_1.descricao, "Foi disponibilizado aos visitantes uma foto do projeto do estadio olimpico de Paris 2024. A foto deste projeto foi disponibilizada pelos proprios resposavel pela criacao do estadio de Paris 2024.");
+        strcpy(jogos_olimp_1.infoGeral, "Ano 2024");
 
         struct Obras jogos_olimp_2;
         strcpy(jogos_olimp_2.autor, "Nome do autor");
@@ -152,7 +153,7 @@ int main() {
         struct Obras guerra_mundial_2;
         strcpy(guerra_mundial_2.autor, "Nome do autor");
         strcpy(guerra_mundial_2.titulo, "A Operação Weserübung");
-        strcpy(guerra_mundial_2.descricao, "foi o assalto alemão sobre as nações-neutras da Dinamarca (Weserübung-Süd) e Noruega (Weserübung-Nord) em 1940, durante a Segunda Guerra Mundial. Esse ataque marcou o início da Campanha da Noruega, que seria ganha pelos alemães. O nome da operação significa 'Exercício no Weser', sendo este um rio alemão. Foi planejada pelo general alemão Nikolaus von Falkenhorst, a pedido de Hitler. Às 4h15 da madrugada na hora local, A 'hora Weser', de 9 de abril de 1940, o 'dia Weser', a Alemanha invadiu a Dinamarca e a Noruega, supostamente para protegê-las de um possível ataque da França e Inglaterra. A Dinamarca resistiu algumas horas à ofensiva alemã, tendo morrido 26 soldados dinamarqueses e 20 alemaes.");
+        strcpy(guerra_mundial_2.descricao, "Foi o assalto alemao sobre as nações-neutras da Dinamarca (Weserübung-Süd) e Noruega (Weserübung-Nord) em 1940, durante a Segunda Guerra Mundial. Esse ataque marcou o início da Campanha da Noruega, que seria ganha pelos alemaes. O nome da operacao significa 'Exercicio no Weser', sendo este um rio alema. Foi planejada pelo general alemao Nikolaus von Falkenhorst, a pedido de Hitler. As 4h15 da madrugada na hora local, A 'hora Weser', de 9 de abril de 1940, o 'dia Weser', a Alemanha invadiu a Dinamarca e a Noruega, supostamente para protegê-las de um possível ataque da França e Inglaterra. A Dinamarca resistiu algumas horas à ofensiva alema, tendo morrido 26 soldados dinamarqueses e 20 alemaes.");
         strcpy(guerra_mundial_2.infoGeral, "Fotos tiradas na cidade de Copenhage em 1940");
 
         exibirMenu();
@@ -173,6 +174,7 @@ int main() {
                         do
                         {
                             system("cls");
+                            setlocale(LC_ALL, "Portuguese");
                             printf("\n..Bem-vindo a Galeria '100 anos da semana da arte moderna..'\n");
                             printf("Qual obra voce gostaria de visitar\n");
                             printf("\t1. Primeiro evento da 'Semana da arte Moderna'\n");
@@ -201,6 +203,7 @@ int main() {
                         do
                         {
                             system("cls");
+                            setlocale(LC_ALL, "Portuguese");
                             printf("\n..Bem-vindo a Galeria '150 anos de Santos Durmont'\n");
                             printf("Qual obra voce gostaria de visitar\n");
                             printf("\t1. Réplica em tamanho real do 14 Bis\n");
@@ -229,9 +232,10 @@ int main() {
                         do
                         {
                             system("cls");
-                            printf("\n..Bem-vindo a Galeria 'Jogos olímpicos em Paris 2024.'\n");
+                            setlocale(LC_ALL, "Portuguese");
+                            printf("\n..Bem-vindo a Galeria 'Jogos olimpicos em Paris 2024.'\n");
                             printf("Qual obra voce gostaria de visitar\n");
-                            printf("\t1. Foto Do Estadio'\n");
+                            printf("\t1. Foto Do Estadio\n");
                             printf("\t2. Mascotes de Paris\n");
                             printf("\t3. Voltar\n");
                             scanf("%d", &escolha);
@@ -295,6 +299,7 @@ int main() {
                 {
                     const char *nomeArquivo = "avaliacoes.txt";
                     system("cls");
+                    setlocale(LC_ALL, "Portuguese");
                     printf("\n\t...Avaliacao de uma obra...\n");
                     printf("\nQual obra gostaria de avaliar?\n");
                     printf("\t1. 100 anos da semana da arte moderna\n");
